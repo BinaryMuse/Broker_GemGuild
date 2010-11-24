@@ -94,11 +94,14 @@ function dataobj:updateTooltip()
 	------------------------
 
 	if IsInGuild() then
-		cat=tablet:AddCategory('id', 'guild', 'columns', 5, 'text', "")
+		cat=tablet:AddCategory('id', 'guild', 'columns', 6, 'text', "")
 		cat:AddLine(
 			'text', "NAME",
 			'text2', "LEVEL",
-			'text3', "ZONE"
+			'text3', "ZONE",
+			'text4', "NOTE",
+			'text5', "OFFICER NOTE",
+			'text6', "RANK"
 		)
 
 		for i=1,GetNumGuildMembers() do
@@ -116,7 +119,10 @@ function dataobj:updateTooltip()
 					'checkIcon',"Interface\Buttons\UI-CheckBox-Check",
 					'text', status..string.format("|cff%s%s", colors[class] or "ffffff", name),
 					'text2',"|cff"..levelcolor(level)..level.."|r",
-					'text3', area or "???"
+					'text3', area or "???",
+					'text4', note,
+					'text5', onote,
+					'text6', rank
 				)
 			end
 		end
